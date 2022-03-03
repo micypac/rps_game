@@ -1,2 +1,3 @@
 # rps_game
-TOP Rock, Paper, Scissors Game
+
+This is The Odin Project implementation of Rock, Paper, Scissors game using Javascript.
