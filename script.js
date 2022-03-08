@@ -26,12 +26,22 @@ function playRound(playerSelection, computerSelection) {
 
         playerPoint++;
         playerScore.innerText = playerPoint;
-        roundResult.innerText = `you win!\n ${playerSelection}\n beats\n ${computerSelection}`;
+        if (window.matchMedia('(max-width: 375px)')){
+            roundResult.innerText = `you win! ${playerSelection} beats ${computerSelection}`;    
+        } else {
+            roundResult.innerText = `you win!\n ${playerSelection}\n beats\n ${computerSelection}`;
+        }
+        
         
     } else {
         computerPoint++;
         computerScore.innerText = computerPoint; 
-        roundResult.innerText = `you lose!\n ${computerSelection}\n beats\n ${playerSelection}`;
+        if (window.matchMedia('(max-width: 375px)')){
+            roundResult.innerText = `you lose! ${computerSelection} beats ${playerSelection}`;
+        } else {
+            roundResult.innerText = `you lose!\n ${computerSelection}\n beats\n ${playerSelection}`;
+        }
+        
     }
 
     if (playerPoint == 5) {

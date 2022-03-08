@@ -10,16 +10,21 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Monoton&display=swap" rel="stylesheet">
 
+    <!-- Font -->
+    <script src="https://kit.fontawesome.com/f62bba440f.js" crossorigin="anonymous"></script>
+
     <!-- external CSS link -->
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
 
+    
+
 </head>
 <body>
     <main>
-        <h1>The  Ultimate<br>Rock,  Paper,  Scissors  Game</h1>
+        <h1>The  Ultimate<br>Rock,  Paper,  Scissors</h1>
     </main>
-    <section>
+    <section id="playground">
         <div class="card">
             <div class="profile">
                 <img src="images/player.png" alt="player">
@@ -29,9 +34,17 @@
                 </div>
             </div>
             <div class="items">
-                <img class="box player-items rock" src="images/rock.jpeg" alt="Rock image">
-                <img class="box player-items paper" src="images/paper.jpeg" alt="Paper image">
-                <img class="box player-items scissor" src="images/scissor.jpeg" alt="Scissor image">
+                <div class="box player-items rock">
+                    <img src="images/rock.jpeg" alt="Rock image">
+                </div>
+                <div class="box player-items paper">
+                    <img src="images/paper.jpeg" alt="Paper image">
+                </div>
+                <div class="box player-items scissor">
+                    <img src="images/scissor.jpeg" alt="Scissor image">
+                </div>
+                
+                
             </div>
         </div>
 
@@ -49,14 +62,24 @@
                 
             </div>
             <div class="items">
-                <img class="box computer-items rock" src="images/rock.jpeg" alt="Rock image">
-                <img class="box computer-items paper" src="images/paper.jpeg" alt="Paper image">
-                <img class="box computer-items scissor" src="images/scissor.jpeg" alt="Scissor image">
+                <div class="box computer-items rock" >
+                    <img src="images/rock.jpeg" alt="Rock image">
+                </div>
+                <div class="box computer-items paper" >
+                    <img src="images/paper.jpeg" alt="Paper image">
+                </div>
+                <div class="box computer-items scissor" >
+                    <img src="images/scissor.jpeg" alt="Scissor image">
+                </div>                                
             </div>
         </div>
     </section>
-    <footer>
+    <section>
         <div class="box reset">reset game?</div>
+    </section>
+
+    <footer>
+        <p></p><small>Copyright © 2022 micypac</small> <a href="https://github.com/micypac/rps_game"><i class="fa-brands fa-github"></i></a></p>
     </footer>
     
     <script type="text/javascript" src="script.js"></script>
