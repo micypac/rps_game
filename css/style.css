@@ -1,0 +1,108 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1F1D36;
+    font-family: 'Bungee', cursive;
+    text-align: center;
+}
+
+h1 {
+    font-size: 4em;
+    font-family: 'Monoton', cursive;
+    color: #E9A6A6;
+    margin: 2em 0 1.2em 0;
+}
+
+section {
+    padding: 0 10%;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+}
+
+footer > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
+    width: 10%;
+    color: #1F1D36;
+}
+
+.reset {
+    visibility: hidden;
+}
+
+.card {
+    background-color: #864879;
+    width: 30%;
+    height: 300px;
+    border-radius: 30px;
+}
+
+.card-2 {
+    width: 25%;
+    margin: 0 5%;
+    font-size: 2.5em;
+    color: #864879;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile {
+    display: flex;
+    justify-content: space-evenly;
+    color: #1F1D36;
+}
+
+.score {
+    font-size: 3em;
+}
+
+.items {
+    display: flex;
+    justify-content: center;
+    gap: 30px
+}
+
+.card > div {
+    margin: 1.5em;
+}
+
+img {
+    height: 100px;   
+}
+
+h2 {
+    margin: 0;
+}
+
+.box {
+    box-shadow: 3px 5px 5px #3F3351;
+    border-radius: 6px;
+    transition-duration: .1s, 1s;
+    transition-timing-function: linear, ease-in;
+    background-color: #864879;
+    cursor: pointer;
+}
+
+.player-items:hover, .reset:hover {
+    transform: scale(.9) perspective(1px)
+}
+
+.player-items:active, .reset:active {
+    transform: scale(.8) perspective(1px);
+    background-color: #763869;
+}
+
+.item-active {
+    background-color: #763869;
+}

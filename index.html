@@ -5,8 +5,59 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissor</title>
+    <!-- Google Font CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Monoton&display=swap" rel="stylesheet">
+
+    <!-- external CSS link -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+
 </head>
 <body>
+    <main>
+        <h1>The  Ultimate<br>Rock,  Paper,  Scissors  Game</h1>
+    </main>
+    <section>
+        <div class="card">
+            <div class="profile">
+                <img src="images/player.png" alt="player">
+                <div>
+                    <h2>Player:</h2>                
+                    <h2 class="score player-score">0</h2>
+                </div>
+            </div>
+            <div class="items">
+                <img class="box player-items rock" src="images/rock.jpeg" alt="Rock image">
+                <img class="box player-items paper" src="images/paper.jpeg" alt="Paper image">
+                <img class="box player-items scissor" src="images/scissor.jpeg" alt="Scissor image">
+            </div>
+        </div>
+
+        <div class="card-2">
+            race to 5 wins the game!
+        </div>
+
+        <div class="card">
+            <div class="profile">
+                <img src="images/computer.png" alt="player">
+                <div>
+                    <h2>Computer:</h2>
+                    <h2 class="score computer-score">0</h2>
+                </div>
+                
+            </div>
+            <div class="items">
+                <img class="box computer-items rock" src="images/rock.jpeg" alt="Rock image">
+                <img class="box computer-items paper" src="images/paper.jpeg" alt="Paper image">
+                <img class="box computer-items scissor" src="images/scissor.jpeg" alt="Scissor image">
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="box reset">reset game?</div>
+    </footer>
     
     <script type="text/javascript" src="script.js"></script>
 </body>

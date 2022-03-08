@@ -1,75 +1,95 @@
 const ITEMS = ['rock', 'paper', 'scissor']
 
 function computerPlay() {
-    return ITEMS[Math.floor(Math.random() * ITEMS.length)]
-}
+    computerPick = ITEMS[Math.floor(Math.random() * ITEMS.length)]
 
-function playerPlay() {
-    let pick;
+    computerItems.forEach(function(item){
+        // First remove item-active styles every item.
+        item.classList.remove('item-active');
 
-    while (true) {
-        pick = prompt("Enter 'rock', 'paper', 'scissor': ", "")
-        if (!pick) {
-            continue
-        } else {
-            if (ITEMS.includes(pick.toLowerCase())) {
-                break;
-            } else {
-                console.log(`Only pick any of the 3 options!`)
-            }
+        // Apply style to item that was picked. 
+        if (item.classList.contains(computerPick)) {
+            item.classList.add('item-active');
         }
-    }
-
-    return pick.toLowerCase()
+    });
 }
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection == computerSelection) {
-        return `Game draw! You both played ${playerSelection}`
+        roundResult.innerText = `round draw!`;
+        return;
     }
 
     if ((playerSelection == "rock" && computerSelection == "scissor") ||
         (playerSelection == "paper" && computerSelection == "rock") ||
         (playerSelection == "scissor" && computerSelection == "paper")) {
 
-        return `You win! ${playerSelection} beats ${computerSelection}`
+        playerPoint++;
+        playerScore.innerText = playerPoint;
+        roundResult.innerText = `you win!\n ${playerSelection}\n beats\n ${computerSelection}`;
         
-    } 
+    } else {
+        computerPoint++;
+        computerScore.innerText = computerPoint; 
+        roundResult.innerText = `you lose!\n ${computerSelection}\n beats\n ${playerSelection}`;
+    }
+
+    if (playerPoint == 5) {
+        roundResult.innerText = `you win. congratulations!`;
+        stopGame();
+    } else if (computerPoint == 5) {
+        roundResult.innerText = `game over. you lose!`;
+        stopGame();
+    }
     
-    return `You lose! ${computerSelection} beats ${playerSelection}`
+}
+
+function stopGame() {
+    // Hide the items container when the game is over.
+    const items = document.querySelectorAll('.items')
+    items.forEach(function(item){
+        item.style.visibility = 'hidden'
+    });
+
+    // Display reset game button.
+    const reset = document.querySelector('.reset')
+    reset.style.visibility = 'visible'
+
+    reset.addEventListener('click', function(){
+        // Reset the game like the window is refreshed.
+        location.reload()
+    });
 }
 
 function game() {
-    for (let i = 0; i < 5; i++) {
-        playerPick = playerPlay()
-        computerPick = computerPlay()  
-
-        let roundMsg = playRound(playerPick, computerPick)
-
-        // console.log(`player: ${playerPick}; computer: ${computerPick}`)
-        console.log(roundMsg)
-        if (roundMsg.includes('win')) {
-            playerWins++
-        } else if (roundMsg.includes('lose')) {
-            computerWins++
-        }
-    }
+    playerItems.forEach(function(item){
+        item.addEventListener('click', function(e){
+            // This part is done to remove style for other items 'NOT CLICKED'
+            playerItems.forEach(a => {
+                a.classList.remove('item-active');
+            });
+            
+            playerPick = e.currentTarget.classList[2];
+            // This is to add style for item that is 'CLICKED'
+            e.currentTarget.classList.add('item-active'); 
+    
+            computerPlay();
+    
+            playRound(playerPick, computerPick);
+        });
+    })
 }
 
-function displayWinner() {
-    if (playerWins == computerWins) {
-        return `Game Draw!`
-    } else if (playerWins > computerWins) {
-        return `You win! You're the best!`
-    } else {
-        return `You lose! Go home, you're drunk!`
-    }
-}
 
 let playerPick;
 let computerPick;
-let playerWins = 0
-let computerWins = 0
+let playerPoint = 0;
+let computerPoint = 0;
+let roundResult = document.querySelector('.card-2');
+let playerScore = document.querySelector('.player-score');
+let computerScore = document.querySelector('.computer-score');
+
+const playerItems = document.querySelectorAll('.player-items');
+const computerItems = document.querySelectorAll('.computer-items');
 
 game()
-console.log(displayWinner())
